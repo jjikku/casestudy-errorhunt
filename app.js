@@ -5,7 +5,7 @@ const cors = require("cors");
 // Misssing external module (Part1#2)
 const bodyParser = require("body-parser");
 
-// Moved to Nav.js in /public/js (Part 2#6) 
+// Moved to Nav.js in /public/js (Part 2#6)
 // const nav = [
 //   {
 //     link: "/books",
@@ -53,7 +53,7 @@ app.get("/", function (req, res) {
   res.render("index", {});
 });
 
-// PORT number changed to 5000 (Part1#5)
-app.listen(5000, () => {
-  console.log("Server Ready on 5000");
+// PORT number changed to 5556 (Part1#5)
+app.listen(5556, () => {
+  console.log("Server Ready on 5556");
 });
