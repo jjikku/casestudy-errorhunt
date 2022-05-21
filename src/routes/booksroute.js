@@ -3,6 +3,7 @@ const booksRouter = express.Router();
 // const books = require('../data/books');
 const bookdata = require("../model/BookModel");
 const nav = require("../../public/js/nav");
+const books = require("../data/books");
 
 //router to render books page
 booksRouter.get("/", function (req, res) {
@@ -33,12 +34,39 @@ booksRouter.post("/add", function (req, res) {
     console.log(e);
   }
   
-  
+
   console.log(item);
   const book = new bookdata(item);
   book.save();
   res.redirect("/books");
 });
+
+//router to add all book
+// booksRouter.get("/addall", async function (req, res) {
+//   try{ // For Heroku
+//     var item;
+//     var book;
+//     for(i=0;i<books.length;i++)
+//     {
+//       item = {
+//         title: books[i].title,
+//         author: books[i].author,
+//         image: books[i].image,
+//         about: books[i].about
+//       };
+//       console.log(item);
+//      book = new bookdata(item);
+//     const book_val = await book.save();
+//     console.log(book_val)
+//     }
+    
+//   }
+//   catch(e){
+//     console.log(e);
+//   }
+  
+//   res.redirect("/books");
+// });
 
 //router for singlebook
 booksRouter.get("/:id", function (req, res) {

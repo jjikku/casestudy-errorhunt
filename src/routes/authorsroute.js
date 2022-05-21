@@ -1,6 +1,6 @@
 const express = require("express");
 const authorsRouter = express.Router();
-// const authors = require('../data/authors');
+const authors = require('../data/authors');
 const authordata = require("../model/AuthorModel");
 const nav = require("../../public/js/nav");
 
@@ -38,6 +38,33 @@ authorsRouter.post("/add", function (req, res) {
   author.save();
   res.redirect("/authors");
 });
+
+// authorsRouter.get("/addall", async function (req, res) {
+//   try{ // For Heroku
+//     var item;
+//     for(i=0;i<authors.length;i++)
+//     {
+//        item = {
+//         title: authors[i].title,
+//         //images => image (Part 2#8)
+//         image: authors[i].image,
+//         about: authors[i].about,
+//       };
+//       console.log(item);
+//     const author = new authordata(item);
+//     const author_val = await author.save();
+//     console.log(author_val);
+//     }
+    
+//   }
+//   catch(e){
+//     console.log(e);
+//   }
+  
+  
+//   res.redirect("/authors");
+// });
+
 
 //router for single author
 authorsRouter.get("/:id", function (req, res) {
