@@ -21,12 +21,18 @@ authorsRouter.get("/addauthor", function (req, res) {
 
 //router to add author
 authorsRouter.post("/add", function (req, res) {
-  var item = {
-    title: req.body.title,
-    //images => image (Part 2#8)
-    image: req.body.image,
-    about: req.body.about,
-  };
+  try{ // For Heroku
+    var item = {
+      title: req.body.title,
+      //images => image (Part 2#8)
+      image: req.body.image,
+      about: req.body.about,
+    };
+  }
+  catch(e){
+    console.log(e);
+  }
+  
   console.log(item);
   const author = new authordata(item);
   author.save();
