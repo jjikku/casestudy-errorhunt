@@ -2,6 +2,9 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+// For Heroku
+require('dotenv').config();
+
 // Misssing external module (Part1#2)
 const bodyParser = require("body-parser");
 
@@ -54,6 +57,6 @@ app.get("/", function (req, res) {
 });
 
 // PORT number changed to 5556 (Part1#5)
-app.listen(5556, () => {
+app.listen(process.env.PORT || 5556, () => {
   console.log("Server Ready on 5556");
 });
