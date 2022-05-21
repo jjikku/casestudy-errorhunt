@@ -56,7 +56,10 @@ app.get("/", function (req, res) {
   res.render("index", {});
 });
 
-// PORT number changed to 5556 (Part1#5)
-app.listen(process.env.PORT || 5556, () => {
-  console.log("Server Ready on 5556");
+// For Heroku
+const PORT = (process.env.PORT || 5000);
+
+// PORT number changed  (Part1#5)
+app.listen(PORT, () => {
+  console.log(`Server Ready on ${PORT}`);
 });
